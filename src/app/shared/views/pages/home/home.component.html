@@ -1,0 +1,166 @@
+<!----------------------------- navbar-->
+<app-navbar></app-navbar>
+
+<!----------------------------- navbar-->
+<!--------------- slider--------------->
+<swiper
+  [config]="config"
+  [(index)]="index"
+  class="swiper-container home-slider"
+>
+  <div style="background-image: url('assets/imgs/main-slider/bg1.jpg');">
+    <div class="overlay">
+      <h2>نحن <span class="main-color">مختلفون جدا</span></h2>
+    </div>
+  </div>
+  <div style="background-image: url('assets/imgs/main-slider/bg2.jpg');">
+    <div class="overlay">
+      <h2>نحن <span class="main-color">نهتم بأسنانك</span></h2>
+    </div>
+  </div>
+  <div style="background-image: url('assets/imgs/main-slider/bg3.jpg');">
+    <div class="overlay">
+      <h2>أفضل <span class="main-color">عيادة أسنان</span></h2>
+    </div>
+  </div>
+</swiper>
+<!--------------- slider--------------->
+
+<!--------------- why us--------------->
+<section class="why-us">
+  <div class="container">
+    <h2 class="title mb-5">لماذا تختارنا ؟</h2>
+    <div class="row feat_section">
+      <div class="col-md-5">
+        <img src="assets/imgs/whyus.png" alt="" class="w-100" />
+      </div>
+      <div class="col-md-7">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="feat_card">
+              <div class="content">
+                <i class="fas fa-user-md icon"></i>
+                <h5>نحن متخصصون</h5>
+                <p class="text-center">
+                  نحن نؤمن بالتخصص ، ولهذا السبب لدينا أطباء الأسنان المتخصصون
+                  لدينا لتحقيق الرعاية عالية الجودة لصحة أسنانك. نحن عيادة
+                  الأسنان الكاملة التي تستحقها
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feat_card">
+              <div class="content">
+                <i class="fas fa-syringe icon"></i>
+                <h5>زرع</h5>
+                <p class="text-center">
+                  لا تعاني أكثر مع أي أسنان مفقودة موادنا عالية الجودة والتعقيم
+                  العالي لكل الكاتيونات والأخصائي المتخصص سنتعامل مع عملية الزرع
+                  الصحيحة التي ستعيد ابتسامتك بشكل فعال
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feat_card">
+              <div class="content">
+                <i class="fas fa-briefcase-medical icon"></i>
+                <h5>أخصائي تقويم الأسنان</h5>
+                <p class="text-center">
+                  اختر من بين العديد من أنواع الأقواس وخطط الدفع. شارك وناقش مع
+                  المتخصصين لدينا ما تحتاجه لأسنانك وساعد في إنشاء العملية التي
+                  تناسب جدولك الزمني ووقتك
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="feat_card">
+              <div class="content">
+                <i class="fas fa-notes-medical icon"></i>
+                <h5>رعاية عامة</h5>
+                <p class="text-center">
+                  لدينا أطباء أسنان محترفين موثوق بهم لتشخيص المشكلة ومنع حدوثها
+                  قبل حدوثها ، بمساعدة معدات عالية الجودة ومعايير تعقيم عالية
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--------------- why us--------------->
+
+
+<!----------------- qualified doctors -->
+<section class="qualified-doctors">
+  <div class="container">
+    <h2 class="title">الأطباء المؤهلين    </h2>
+    <h6 class="text-center">لدينا أطباء مؤهلين تأهيلاً عالياً    </h6>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="image-area">
+          <div class="img-wrapper">
+            <img src="assets/imgs/doctors/doctor01.jpg" alt="Atul Prajapati">
+            <div class="info">
+              <h2> اسم الدكتور </h2>
+              <h5>دكتور اسنان</h5>
+
+            </div>
+            <ul>
+              <li><a href="https://github.com/atuljustano"><i class="fab fa-github"></i></a></li>
+              <li><a href="https://www.instagram.com/atulkprajapati2000/"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="https://twitter.com/atuljustano"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="https://www.youtube.com/channel/UCf-KfxuY8PZBSD_8RW2nYsw"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!----------------- qualified doctors -->
+
+
+<!------------------footer -->
+<app-footer></app-footer>
+<!-------------footer ------->
+
+<!-- <div class="layout-with-side">
+
+  <div class="content">
+    <swiper [config]="config" [(index)]="index"  class="swiper-container home-slider">
+      <div style="background-image: url('assets/imgs/main-slider/bg1.jpg');">
+        <div class="overlay">
+          <h2>Best <span class="main-color">Dental Clinic</span></h2>
+        </div>
+      </div>
+      <div style="background-image: url('assets/imgs/main-slider/bg2.jpg');">
+        <div class="overlay">
+          <h2>Best <span class="main-color">Dental Clinic</span></h2>
+        </div>
+      </div>
+      <div style="background-image: url('assets/imgs/main-slider/bg3.jpg');">
+        <div class="overlay">
+          <h2>Best <span class="main-color">Dental Clinic</span></h2>
+        </div>
+      </div>
+    </swiper>
+  </div>
+
+  <div class="side">
+    <app-sidenav></app-sidenav>
+
+  </div>
+
+</div> -->
+
+<!-- Container for sidebar(s) + page content -->
+<!-- Container for sidebar(s) + page content -->

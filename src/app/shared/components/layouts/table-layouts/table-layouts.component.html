@@ -1,0 +1,15 @@
+
+<app-navbar></app-navbar>
+<div class="layout-with-side" [class.docked_mode]="_dock">
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="side" >
+    <button class="btn toggle-dock-btn" (click)="_toggleDock()"><i class="pi pi-bars"></i></button>
+    <app-sidenav  (mouseover)="_toggleDockOnHover()"></app-sidenav>
+
+  </div>
+
+</div>

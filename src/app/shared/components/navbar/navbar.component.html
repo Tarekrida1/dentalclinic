@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+  <a class="navbar-brand" href="#"><img src="assets/imgs/logoFontBlack.png" alt="" height="50" srcset=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">الرئيسية <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/dashboard/patients">المرضى</a>
+      </li>
+      <li class="nav-item dropdown" ngbDropdown >
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          تقارير
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">تقارير اليوم</a>
+          <a class="dropdown-item" href="#">تقارير الدكتور</a>
+
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">      صافي الدخل
+        </a>
+      </li>
+      <li class="nav-item dropdown" ngbDropdown >
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          المواعيد
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">مشاهدة المواعيد</a>
+          <a class="dropdown-item" href="#">مواعيد اليوم </a>
+
+        </div>
+      </li>
+
+    </ul>
+   <button class="btn btn-primary" (click)="openSm(loginContent)">تسجيل دخول</button>
+    <div class="my-2 my-lg-0 d-inline nav-profile">
+      <div class="nav-item dropdown" ngbDropdown >
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          د/ احمد محمود <img src="https://www.docsapp.in/website_assets/main-page/dr_rahul_kanaka.jpg" alt="" srcset="">
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">تسجيل خروج</a>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+<ng-template #loginContent let-modal>
+  <div class="modal-header p-0">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <app-login-registration></app-login-registration>
+</ng-template>

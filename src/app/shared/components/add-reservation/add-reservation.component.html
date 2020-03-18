@@ -1,0 +1,41 @@
+                      <h4 class="modal-title text-center" id="modal-basic-title">اضافة موعد</h4>
+
+<div class="modal-body">
+  <form #reservation="ngForm" (ngSubmit)="addReservation(reservation)">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <div class="input-group dropfield" [ngClass]="{'err' : doc_id.invalid && doc_id.touched}">
+
+            <p-dropdown [options]="doc_name"  ngModel #doc_id="ngModel" name="doc_id" required  class="form-control main-search-input form-control-lg" [filter]="true" filterBy="label,value.name"></p-dropdown>
+
+            <div class="input-group-append d-flex align-items-center">
+              <i class="fas fa-user-md"></i>
+            </div>
+          </div>
+          <p class="err-message bounceInRight" role="alert" *ngIf="doc_id.invalid && doc_id.touched">
+             من فضلك اختر دكتور
+         </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <div class="input-group dropfield" [ngClass]="{'err' : clinic_id.invalid && clinic_id.touched}">
+
+            <p-dropdown [options]="clinic_name"  ngModel #clinic_id="ngModel" name="clinic_id" required  class="form-control main-search-input form-control-lg" [filter]="true" filterBy="label,value.name"></p-dropdown>
+
+            <div class="input-group-append d-flex align-items-center">
+              <i class="fas fa-user-md"></i>
+            </div>
+          </div>
+          <p class="err-message bounceInRight" role="alert" *ngIf="clinic_id.invalid && clinic_id.touched">
+             من فضلك اختر دكتور
+         </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary m-auto btn-hover">اضافة الموعد</button>
+</div>
