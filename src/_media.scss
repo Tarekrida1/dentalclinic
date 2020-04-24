@@ -1,0 +1,161 @@
+$firt_color: #00c3cb;
+$second_color: #FF5252;
+$grey_color: #2d4057;
+
+@media (min-width: 1200px) {
+  .modal-xl {
+    max-width: 1140px;
+}
+
+}
+
+@media (max-width: 768px) {
+  .ui-table-wrapper table {
+    * {
+     text-align: right !important;
+    }
+  }
+  .ui-table-wrapper table .ui-column-title{
+    display: block !important;
+    text-align: center !important;
+  }
+  body .ui-table .ui-table-tbody > tr.ui-state-highlight {
+    background-color: transparent !important;
+    color: #000 !important;
+}
+.ui-table-responsive .ui-table-thead>tr>th, .ui-table-responsive .ui-table-tfoot>tr>td {
+  display: flex !important;
+}
+
+body .ui-datepicker:not(.ui-datepicker-inline) {
+  left: unset !important;
+right: 0 !important;
+}
+
+body .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none !important;
+  border-color: none !important;
+}
+  .home-slider .swiper-slide .overlay {
+    padding: 15px;
+  }
+  .layout-with-side {
+    .content {
+      margin-right: 0 !important;
+  }
+  .side {
+    display: none !important;
+  }
+ }
+ .navbar-collapse {
+  background: #fff;
+  margin: 0 -15px;
+  padding: 10px;
+}
+
+.container-details .content-head {
+width: 100% !important;
+}
+}
+@media (min-width: 769px) {
+  .navbar-nav li:hover>.dropdown-menu {
+      display: block;
+      // -webkit-animation-name: bounceInDown;
+      // animation-name: bounceInDown;
+    margin: 0 !important;
+        visibility: visible;
+        height: auto;
+        overflow: unset;
+        animation: .5s rotateInDownRight;
+        -webkit-animation: .5s rotateInDownRight;
+
+    }
+  .dropdown-menu {
+    display: block;
+    direction: ltr;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    right: 0;
+    border: 0;
+    box-shadow: 0 0 27px rgba(0,0,0,.13);
+    -webkit-box-shadow: 0 0 27px rgba(0,0,0,.13);
+
+  }
+  .dropdown-menu.show {
+  visibility: visible;
+  height: auto;
+  overflow: unset;
+  animation: .5s rotateInDownRight;
+  -webkit-animation: .5s rotateInDownRight;
+}
+}
+
+
+   /* Column Priorities */
+   @media only all {
+    th.ui-p-6,
+    td.ui-p-6,
+    th.ui-p-5,
+    td.ui-p-5,
+    th.ui-p-4,
+    td.ui-p-4,
+    th.ui-p-3,
+    td.ui-p-3,
+    th.ui-p-2,
+    td.ui-p-2,
+    th.ui-p-1,
+    td.ui-p-1 {
+        display: none;
+    }
+}
+
+/* Show priority 1 at 320px (20em x 16px) */
+@media screen and (min-width: 20em) {
+    th.ui-p-1,
+    td.ui-p-1 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 2 at 480px (30em x 16px) */
+@media screen and (min-width: 30em) {
+    th.ui-p-2,
+    td.ui-p-2 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 3 at 640px (40em x 16px) */
+@media screen and (min-width: 40em) {
+    th.ui-p-3,
+    td.ui-p-3 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 4 at 800px (50em x 16px) */
+@media screen and (min-width: 50em) {
+    th.ui-p-4,
+    td.ui-p-4 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 5 at 960px (60em x 16px) */
+@media screen and (min-width: 60em) {
+    th.ui-p-5,
+    td.ui-p-5 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 6 at 1,120px (70em x 16px) */
+@media screen and (min-width: 70em) {
+    th.ui-p-6,
+    td.ui-p-6 {
+        display: table-cell;
+    }
+}

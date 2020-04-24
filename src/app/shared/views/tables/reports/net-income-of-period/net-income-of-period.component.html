@@ -1,0 +1,76 @@
+<div class="container">
+
+  <div class="system-card dashboard-cards">
+    <div class="row">
+      <div class="col-md-3 mb-2">
+        <div class="dashboard-card primary-card">
+            <i class="icon fas fa-plus-circle"></i>
+          <h2>44</h2>
+          <p>إجمالي الدخل
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-2">
+          <div class="dashboard-card secondary-card">
+              <i class="icon fas fa-plus-circle"></i>
+            <h2>44</h2>
+            <p>المصروفات الكلية
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-3 mb-2">
+            <div class="dashboard-card danger-card">
+                <i class="icon fas fa-plus-circle"></i>
+              <h2> 1025</h2>
+              <p>صافي الدخل
+              </p>
+            </div>
+          </div>
+
+
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="row mb-4">
+
+          <div class="col-md-6">
+            <h5 class="main-color"><i class="fas fa-chart-pie"></i>  المصاريف في فترة معينة</h5>
+
+          </div>
+          <div class="col-md-6">
+            <div class="form-group m-0">
+
+              <div class="input-group dropfield dateRange">
+
+            <p-calendar [(ngModel)]="rangeDates" (onSelect)="dateRange(rangeDates)" placeholder="فترة من - الي" selectionMode="range" [readonlyInput]="true"></p-calendar>
+
+                <div class="input-group-append d-flex align-items-center bg-danger ml-auto "  (click)="rangeDates = ''">
+                  <i class="fas fa-trash text-white" ></i>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+          <div>
+              <div class="chart">
+                <canvas baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                [plugins]="lineChartPlugins"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+              </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

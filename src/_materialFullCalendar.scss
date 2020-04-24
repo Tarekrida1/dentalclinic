@@ -1,0 +1,47 @@
+@import "global";
+body .fc .fc-toolbar .fc-button {
+  color: #ffffff;
+  background-color: $firt_color;
+  border: none !important;
+  font-size: 14px;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  border-radius: 3px;
+  outline: none;
+  margin: 0px 5px;
+  padding: 10px 15px;
+  border-radius: 100px !important;
+  &:hover {
+  background-color: $second_color !important;
+
+  }
+}
+
+body .fc-toolbar.fc-header-toolbar .fc-right .fc-button {
+  background-color: $second_color;
+
+
+  &:hover {
+    background-color: $firt_color !important;
+
+    }
+}
+
+.fc-unthemed .fc-content, .fc-unthemed .fc-divider, .fc-unthemed .fc-list-heading td, .fc-unthemed .fc-list-view, .fc-unthemed .fc-popover, .fc-unthemed .fc-row, .fc-unthemed tbody, .fc-unthemed td, .fc-unthemed th, .fc-unthemed thead {
+  border-color: #e6f9f9;
+}
+body .fc th {
+  background-color: #f5ffff;
+  border: 1px solid #e9efef;
+  color: $second_color;
+  padding: 0.571em 1em;
+}
+body .fc .fc-event {
+  background-color: $firt_color;
+  border: 1px solid $firt_color;
+  &:hover {
+    background-color: $second_color;
+    border: 1px solid $second_color;
+    color: #fff;
+  }
+}

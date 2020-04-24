@@ -1,0 +1,99 @@
+
+<div class="system-container">
+  <div class="table-container">
+
+
+    <div class="printed_content">
+      <p-table [columns]="cols" [value]="data" [responsive]="true" selectionMode="multiple" [(selection)]="selectedRow"  dataKey="id" [(contextMenuSelection)]="selectedRow" [globalFilterFields]="['doc_name','phone_number','patient_name']" #dt [value]="data"   [paginator]="true" [rows]="10" >
+
+          <ng-template class="noPrint" pTemplate="caption">
+<div class="row m-0">
+<div class="col-md-5 mt-1 mb-1">
+  <div class="row">
+    <div class="col-md-6 mt-1 mb-1">
+      <div class="search" style="text-align: right">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="بحث" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:100px">
+    </div>
+    </div>
+    <div class="col-md-6 mt-1">
+      <div class="form-group m-0">
+
+        <div class="input-group dropfield dateRange">
+
+          <p-dropdown [options]="doc_name" id="doc_name"  ngModel #doc_id="ngModel" name="doc_id" required  class="form-control main-search-input form-control-lg" [filter]="true" filterBy="label,value.name"></p-dropdown>
+
+          <div class="input-group-append d-flex align-items-center">
+            <i class="fas fa-user-md"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-4 mt-1 mb-1">
+
+  <div class="form-group m-0">
+
+    <div class="input-group dropfield dateRange">
+
+  <p-calendar [(ngModel)]="rangeDates" (onSelect)="dateRange(rangeDates)" placeholder="فترة من - الي" selectionMode="range" [readonlyInput]="true"></p-calendar>
+
+      <div class="input-group-append d-flex align-items-center bg-danger "  (click)="rangeDates = '';data = rowData">
+        <i class="fas fa-trash text-white" ></i>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="col-md-3 mt-1 mb-1">
+  <div class="d-flex">
+
+    <button type="button" (click)="exportExcel()" class="btn btn-secondary btn-hover" >نسخة اكسل<i class="far fa-file-excel"></i></button>
+    <button type="button"  (click)="printData()" class="btn btn-success ml-2 btn-hover" >طباعة<i class="fas fa-print"></i></button>
+
+  </div>
+</div>
+</div>
+
+
+          </ng-template >
+          <ng-template pTemplate="header" let-columns>
+              <tr>
+                  <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                      {{col.header}}
+                      <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                  </th>
+
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns"  let-ri="rowIndex" >
+              <tr  [pContextMenuRow]="rowData">
+                  <td>
+                      {{rowData.name}}
+                  </td>
+                  <td>
+                      {{rowData.date}}
+                  </td>
+                  <td>
+                      {{rowData.diagnostic}}
+                  </td>
+                  <td>
+                    {{rowData.service_name}}
+                </td>
+                <td>
+                    {{rowData.procedures}}
+                </td>
+                <td>
+                    {{rowData.paid |  currency:"EGP":" جنية "}}
+                </td>
+              </tr>
+          </ng-template>
+
+      </p-table>
+  </div>
+  </div>
+</div>
+
+                  <!-- <p-contextMenu #cm [model]="items"></p-contextMenu> -->

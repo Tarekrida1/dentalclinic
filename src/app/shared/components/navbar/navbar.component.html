@@ -1,38 +1,61 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-  <a class="navbar-brand" href="#"><img src="assets/imgs/logoFontBlack.png" alt="" height="50" srcset=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#"  routerLink="/"><img src="assets/imgs/logo.png" alt="" height="50" srcset=""></a>
+  <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent"  [class.show]="isNavbarCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">الرئيسية <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#" routerLink="/">الرئيسية <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/dashboard/patients">المرضى</a>
+
+      <li class="nav-item dropdown" ngbDropdown >
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          المرضى
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"  routerLink="/dashboard/patients">كل المرضى</a>
+          <a class="dropdown-item" href="#"  routerLink="/dashboard/patients/add"> اضافة مريض</a>
+
+        </div>
       </li>
       <li class="nav-item dropdown" ngbDropdown >
         <a class="nav-link dropdown-toggle" ngbDropdownToggle  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           تقارير
         </a>
         <div class="dropdown-menu" ngbDropdownMenu  aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">تقارير اليوم</a>
-          <a class="dropdown-item" href="#">تقارير الدكتور</a>
+          <a class="dropdown-item" href="#" routerLink="/dashboard/reports/day">ملخص اليوم</a>
+          <a class="dropdown-item" href="#"  routerLink="/dashboard/reports/DoctorSummary">ملخص الدكتور</a>
 
         </div>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link " href="#">      صافي الدخل
+        <a class="nav-link " href="#" routerLink="/dashboard/reports/ViewExpenses">       المصاريف
         </a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link "  (click)="toggleSideNav()">       test side
+        </a>
+      </li> -->
+      <li class="nav-item dropdown" ngbDropdown >
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          صافي الدخل
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"  routerLink="/dashboard/reports/net-income">صافي الدخل</a>
+          <a class="dropdown-item" href="#"  routerLink="/dashboard/reports/net-income-period"> مخطط الدخل</a>
+
+        </div>
       </li>
       <li class="nav-item dropdown" ngbDropdown >
         <a class="nav-link dropdown-toggle" ngbDropdownToggle  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           المواعيد
         </a>
         <div class="dropdown-menu" ngbDropdownMenu  aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">مشاهدة المواعيد</a>
-          <a class="dropdown-item" href="#">مواعيد اليوم </a>
+          <a class="dropdown-item" href="#" routerLink="/dashboard/appointments/view">مشاهدة المواعيد</a>
+          <a class="dropdown-item" href="#" routerLink="/dashboard/appointments/today">مواعيد اليوم </a>
 
         </div>
       </li>

@@ -1,175 +1,178 @@
-<form class="p-3"  #patiant="ngForm" (ngSubmit)="AddPatiant(patiant.value)">
+<div class="container">
+  <form class="p-3 bg-white"  #patiant="ngForm" (ngSubmit)="AddPatiant(patiant.value)">
 
-  <div class="row">
-    <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-4">
 
-      <div class="form-group">
-        <label for="name" name="name" class="req">اسم المريض</label>
-        <div class="input-group"  [ngClass]="{'err' : name.invalid && name.touched}">
-          <input ngModel name="name"  id="name" #name="ngModel" required  class="form-control"  >
-          <div class="input-group-append d-flex align-items-center">
-                  <i class="fas fa-user"></i>
+        <div class="form-group">
+          <label for="name" name="name" class="req">اسم المريض</label>
+          <div class="input-group"  [ngClass]="{'err' : name.invalid && name.touched}">
+            <input ngModel name="name"  id="name" #name="ngModel" required  class="form-control"  >
+            <div class="input-group-append d-flex align-items-center">
+                    <i class="fas fa-user"></i>
+            </div>
           </div>
+          <p class="err-message bounceInRight" role="alert" *ngIf="name.invalid && name.touched">
+               من فضلك ادخل اسم المريص
+           </p>
         </div>
-        <p class="err-message bounceInRight" role="alert" *ngIf="name.invalid && name.touched">
-             من فضلك ادخل اسم المريص
+      </div>
+      <div class="col-md-4">
+       <div class="form-group">
+          <label for="birthDate"> تاريخ الميلاد</label>
+  <p-calendar  [readonlyInput]="true" class="form-control p-0" name="birthDate" id="birthDate" ngModel  #birthDate="ngModel"></p-calendar>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+           <label for="job">  الوظيفة</label>
+  <input type="text" id="job" name="job" class="form-control"  ngModel  #job="ngModel">
+          </div>
+       </div>
+       <div class="col-md-6">
+        <div class="form-group">
+           <label for="work-place">  مكان العمل</label>
+  <input type="text" id="work-place" name="work-place" class="form-control"  ngModel  #workPlace="ngModel">
+          </div>
+       </div>
+       <div class="col-md-6">
+        <div class="form-group">
+           <label for="address"> العنوان</label>
+  <input type="text" id="address" name="address" class="form-control" ngModel  #address="ngModel">
+          </div>
+       </div>
+       <div class="col-md-6">
+        <div class="form-group">
+           <label for="phone"> الموبايل</label>
+  <input type="text" id="phone" name="phone" class="form-control" ngModel  #phone="ngModel">
+          </div>
+       </div>
+       <div class="col-md-6">
+        <div class="form-group">
+          <label for="doc_name" class="req"> اسم الدكتور</label>
+
+          <div class="input-group dropfield" [ngClass]="{'err' : doc_id.invalid && doc_id.touched}">
+
+            <p-dropdown [options]="doc_name" id="doc_name"  ngModel #doc_id="ngModel" name="doc_id" required  class="form-control main-search-input form-control-lg" [filter]="true" filterBy="label,value.name"></p-dropdown>
+
+            <div class="input-group-append d-flex align-items-center">
+              <i class="fas fa-user-md"></i>
+            </div>
+          </div>
+          <p class="err-message bounceInRight" role="alert" *ngIf="doc_id.invalid && doc_id.touched">
+             من فضلك اختر دكتور
          </p>
-      </div>
-    </div>
-    <div class="col-md-4">
-     <div class="form-group">
-        <label for="birthDate"> تاريخ الميلاد</label>
-<p-calendar   class="form-control p-0" name="birthDate" id="birthDate" ngModel  #birthDate="ngModel"></p-calendar>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-         <label for="job">  الوظيفة</label>
-<input type="text" id="job" name="job" class="form-control"  ngModel  #job="ngModel">
         </div>
-     </div>
-     <div class="col-md-6">
-      <div class="form-group">
-         <label for="work-place">  مكان العمل</label>
-<input type="text" id="work-place" name="work-place" class="form-control"  ngModel  #workPlace="ngModel">
-        </div>
-     </div>
-     <div class="col-md-6">
-      <div class="form-group">
-         <label for="address"> العنوان</label>
-<input type="text" id="address" name="address" class="form-control" ngModel  #address="ngModel">
-        </div>
-     </div>
-     <div class="col-md-6">
-      <div class="form-group">
-         <label for="phone"> الموبايل</label>
-<input type="text" id="phone" name="phone" class="form-control" ngModel  #phone="ngModel">
-        </div>
-     </div>
-     <div class="col-md-6">
-      <div class="form-group">
-        <label for="doc_name" class="req"> اسم الدكتور</label>
+       </div>
+       <div class="col-md-12">
+        <p-panel header=" كيف سمعت عنا ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
+          <div class="row radioButton" style="margin:10px 0">
+            <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 1" label="صديق"  inputId="opt1"></p-radioButton></div>
+            <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 2" label="عائلة"  inputId="opt2"></p-radioButton></div>
+            <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 3" label="موقع الكتروني"  inputId="opt3"></p-radioButton></div>
+            <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 3" label="السوشيال ميديا"  inputId="opt4"></p-radioButton></div>
+            <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 3" label="اخرى"  inputId="opt5"></p-radioButton></div>
 
-        <div class="input-group dropfield" [ngClass]="{'err' : doc_id.invalid && doc_id.touched}">
-
-          <p-dropdown [options]="doc_name" id="doc_name"  ngModel #doc_id="ngModel" name="doc_id" required  class="form-control main-search-input form-control-lg" [filter]="true" filterBy="label,value.name"></p-dropdown>
-
-          <div class="input-group-append d-flex align-items-center">
-            <i class="fas fa-user-md"></i>
           </div>
-        </div>
-        <p class="err-message bounceInRight" role="alert" *ngIf="doc_id.invalid && doc_id.touched">
-           من فضلك اختر دكتور
-       </p>
-      </div>
-     </div>
-     <div class="col-md-12">
-      <p-panel header=" كيف سمعت عنا ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
-        <div class="row radioButton" style="margin:10px 0">
-          <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 1" label="صديق"  inputId="opt1"></p-radioButton></div>
-          <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 2" label="عائلة"  inputId="opt2"></p-radioButton></div>
-          <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 3" label="موقع الكتروني"  inputId="opt3"></p-radioButton></div>
-          <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 3" label="السوشيال ميديا"  inputId="opt4"></p-radioButton></div>
-          <div class="col-md mb-1 mt-1"><p-radioButton name="group1"  ngModel  #heardFrom="ngModel" value="Option 3" label="اخرى"  inputId="opt5"></p-radioButton></div>
+        </p-panel>
+       </div>
+       <div class="col-md-12">
+        <p-panel header="هل انت تحت اشراف طبيب اخر لعلاج معين ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
+          <div class="row radioButton" style="margin:10px 0">
+            <div class="col-md-2 mb-1 mt-1"><p-radioButton name="group1"  ngModel  #specifiDcoctor="ngModel" value="Option 1" label="نعم"  inputId="opt1"></p-radioButton></div>
+            <div class="col-md-2 mb-1 mt-1"><p-radioButton name="group1"  ngModel  #specifiDcoctor="ngModel" value="Option 2" label="لا"  inputId="opt2"></p-radioButton></div>
 
-        </div>
-      </p-panel>
-     </div>
-     <div class="col-md-12">
-      <p-panel header="هل انت تحت اشراف طبيب اخر لعلاج معين ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
-        <div class="row radioButton" style="margin:10px 0">
-          <div class="col-md-2 mb-1 mt-1"><p-radioButton name="group1"  ngModel  #specifiDcoctor="ngModel" value="Option 1" label="نعم"  inputId="opt1"></p-radioButton></div>
-          <div class="col-md-2 mb-1 mt-1"><p-radioButton name="group1"  ngModel  #specifiDcoctor="ngModel" value="Option 2" label="لا"  inputId="opt2"></p-radioButton></div>
+          </div>
+        </p-panel>
+       </div>
 
-        </div>
-      </p-panel>
-     </div>
+       <div class="col-md-12">
+        <p-panel header="هل سبق لك إجراء عملية جراحية ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
+          <div class="row radioButton" style="margin:10px 0">
+            <div class="col-md-2 mb-1 mt-1"><p-radioButton name="group1a" ngModel  #previouSurgery="ngModel" value="Option 1" label="نعم"  inputId="opt1ss"></p-radioButton></div>
+            <div class="col-md-2 mb-1 mt-1"><p-radioButton name="group1a" ngModel  #previouSurgery="ngModel" value="Option 2" label="لا"  inputId="opst2"></p-radioButton></div>
 
-     <div class="col-md-12">
-      <p-panel header="هل سبق لك إجراء عملية جراحية ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
-        <div class="row radioButton" style="margin:10px 0">
-          <div class="col-md-2 mb-1 mt-1"><p-radioButton name="group1a" ngModel  #previouSurgery="ngModel" value="Option 1" label="نعم"  inputId="opt1ss"></p-radioButton></div>
-          <div class="col-md-2 mb-1 mt-1"><p-radioButton name="group1a" ngModel  #previouSurgery="ngModel" value="Option 2" label="لا"  inputId="opst2"></p-radioButton></div>
+          </div>
+        </p-panel>
+       </div>
 
-        </div>
-      </p-panel>
-     </div>
+       <div class="col-md-12">
+        <p-panel header="هل تعاني من أي من الأمراض الاتية ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
 
-     <div class="col-md-12">
-      <p-panel header="هل تعاني من أي من الأمراض الاتية ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
-
-        <div class="row checkBoxButton" style="margin-bottom:10px 0">
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value="أمراض القلب" label="أمراض القلب"  inputId="ny"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value="ضغط الدم" label="ضغط الدم"  inputId="sf"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" امراض عصبية" label="امراض عصبية"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" امراض السكر" label="امراض السكر"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" قرحة المعدة" label="قرحة المعدة"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" أمراض الكلي" label="أمراض الكلي"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" أمراض الرئة" label="أمراض الرئة"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" الغدة الدرقية" label="الغدة الدرقية"  inputId="la"></p-checkbox></div>
+          <div class="row checkBoxButton" style="margin-bottom:10px 0">
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value="أمراض القلب" label="أمراض القلب"  inputId="ny"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value="ضغط الدم" label="ضغط الدم"  inputId="sf"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" امراض عصبية" label="امراض عصبية"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" امراض السكر" label="امراض السكر"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" قرحة المعدة" label="قرحة المعدة"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" أمراض الكلي" label="أمراض الكلي"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" أمراض الرئة" label="أمراض الرئة"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1" ngModel  #Illness="ngModel" value=" الغدة الدرقية" label="الغدة الدرقية"  inputId="la"></p-checkbox></div>
 
 
-        </div>
-      </p-panel>
-     </div>
+          </div>
+        </p-panel>
+       </div>
 
-     <div class="col-md-12">
-      <p-panel header="هل سبق لك التعرض للاصابات الاتية ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
+       <div class="col-md-12">
+        <p-panel header="هل سبق لك التعرض للاصابات الاتية ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
 
-        <div class="row checkBoxButton" style="margin-bottom:10px 0">
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value="الحمي الروماتيزمية" label="الحمي الروماتيزمية"  inputId="ny"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value="صعوبة التئام الجروح" label="صعوبة التئام الجروح"  inputId="sf"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" صدمات أو كسور" label="صدمات أو كسور"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" التهاب الكبد الوبائي" label="التهاب الكبد الوبائي"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" انيميا" label="انيميا"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" الصداع" label="الصداع"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" سرعة نزيف" label="سرعة نزيف"  inputId="la"></p-checkbox></div>
+          <div class="row checkBoxButton" style="margin-bottom:10px 0">
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value="الحمي الروماتيزمية" label="الحمي الروماتيزمية"  inputId="ny"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value="صعوبة التئام الجروح" label="صعوبة التئام الجروح"  inputId="sf"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" صدمات أو كسور" label="صدمات أو كسور"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" التهاب الكبد الوبائي" label="التهاب الكبد الوبائي"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" انيميا" label="انيميا"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" الصداع" label="الصداع"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1ad"  ngModel  #infection="ngModel" value=" سرعة نزيف" label="سرعة نزيف"  inputId="la"></p-checkbox></div>
 
 
-        </div>
-      </p-panel>
-     </div>
+          </div>
+        </p-panel>
+       </div>
 
-     <div class="col-md-12">
-      <p-panel header="هل لديك حساسية لأي من الأدوية الأتية ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
+       <div class="col-md-12">
+        <p-panel header="هل لديك حساسية لأي من الأدوية الأتية ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
 
-        <div class="row checkBoxButton" style="margin-bottom:10px 0">
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"   value="البنسلين" label="البنسلين"  inputId="ny"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value="اليود" label="اليود"  inputId="sf"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value=" السلفا" label="السلفا"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value=" الأسبرين" label="الأسبرين"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value=" المضادات الحيوية" label="المضادات الحيوية"  inputId="la"></p-checkbox></div>
-          <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value=" أدوية أخري" label="أدوية أخري"  inputId="la"></p-checkbox></div>
-        </div>
-      </p-panel>
-     </div>
+          <div class="row checkBoxButton" style="margin-bottom:10px 0">
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"   value="البنسلين" label="البنسلين"  inputId="ny"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value="اليود" label="اليود"  inputId="sf"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value=" السلفا" label="السلفا"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value=" الأسبرين" label="الأسبرين"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value=" المضادات الحيوية" label="المضادات الحيوية"  inputId="la"></p-checkbox></div>
+            <div class="col-md-3 mb-1 mt-1"><p-checkbox name="group1adsa"  ngModel  #allergy="ngModel"  value=" أدوية أخري" label="أدوية أخري"  inputId="la"></p-checkbox></div>
+          </div>
+        </p-panel>
+       </div>
 
-     <div class="col-md-12">
-      <p-panel header="هل واجهت مشاكل بالنسبة لعلاج الأسنان ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
-        <div class="row radioButton" style="margin:10px 0">
-          <div class="col-md-2 mb-1 mt-1"><p-radioButton name="add"  ngModel  #dentalProblems="ngModel" value="Option 1" label="نعم"  inputId="opt1ss"></p-radioButton></div>
-          <div class="col-md-2 mb-1 mt-1"><p-radioButton name="add"  ngModel  #dentalProblems="ngModel" value="Option 2" label="لا"  inputId="opst2"></p-radioButton></div>
+       <div class="col-md-12">
+        <p-panel header="هل واجهت مشاكل بالنسبة لعلاج الأسنان ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
+          <div class="row radioButton" style="margin:10px 0">
+            <div class="col-md-2 mb-1 mt-1"><p-radioButton name="add"  ngModel  #dentalProblems="ngModel" value="Option 1" label="نعم"  inputId="opt1ss"></p-radioButton></div>
+            <div class="col-md-2 mb-1 mt-1"><p-radioButton name="add"  ngModel  #dentalProblems="ngModel" value="Option 2" label="لا"  inputId="opst2"></p-radioButton></div>
 
-        </div>
-      </p-panel>
-     </div>
+          </div>
+        </p-panel>
+       </div>
 
-     <div class="col-md-12">
-      <p-panel header="هل انت من المدخنين ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
-        <div class="row radioButton" style="margin:10px 0">
-          <div class="col-md-2 mb-1 mt-1"><p-radioButton name="add"  ngModel  #smoking="ngModel"  value="Option 1" label="نعم"  inputId="opt1ss"></p-radioButton></div>
-          <div class="col-md-2 mb-1 mt-1"><p-radioButton name="add"  ngModel  #smoking="ngModel"  value="Option 2" label="لا"  inputId="opst2"></p-radioButton></div>
+       <div class="col-md-12">
+        <p-panel header="هل انت من المدخنين ؟" class="collapse-panel" [toggleable]="true" [collapsed]="true" [style]="{'margin-bottom':'20px'}">
+          <div class="row radioButton" style="margin:10px 0">
+            <div class="col-md-2 mb-1 mt-1"><p-radioButton name="add"  ngModel  #smoking="ngModel"  value="Option 1" label="نعم"  inputId="opt1ss"></p-radioButton></div>
+            <div class="col-md-2 mb-1 mt-1"><p-radioButton name="add"  ngModel  #smoking="ngModel"  value="Option 2" label="لا"  inputId="opst2"></p-radioButton></div>
 
-        </div>
-      </p-panel>
-     </div>
+          </div>
+        </p-panel>
+       </div>
 
-     <div class="col-md-12">
-      <button type="submit" class="btn btn-hover btn-primary">اضافة المريض  <i class="fas fa-user-plus"></i></button>
+       <div class="col-md-12">
+        <button type="submit" class="btn btn-hover btn-primary">اضافة المريض  <i class="fas fa-user-plus"></i></button>
 
-     </div>
-  </div>
+       </div>
+    </div>
 
 
 
-</form>
+  </form>
+
+</div>

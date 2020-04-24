@@ -1543,7 +1543,7 @@ body .ui-inputtext {
         font-family: initial;
         letter-spacing: 2px;
         text-transform: uppercase;
-        margin-right: auto;
+        margin-left: auto;
     }
     p-table {
         direction: rtl;
@@ -1566,13 +1566,17 @@ body .ui-inputtext {
         .search {
             text-align: right;
             background: #fff;
-            padding: 10px;
             display: flex;
-            max-width: 400px;
-            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16);
+            // max-width: 400px;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16) !important;
+            margin: 0;
+            padding: 0;
+            height: 40px;
             input {
                 outline: none;
                 box-shadow: none;
+    width: 100% !important;
+    height: 100%;
             }
             i {
                 padding: 5px;

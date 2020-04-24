@@ -6,15 +6,21 @@ import { MenuItem } from 'primeng/api/menuitem';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.component.html',
-  styleUrls: ['./patients.component.scss']
+  styleUrls: ['./patients.component.scss'],
+  providers: [
+    // ConfirmationService,
+  ]
 })
 export class PatientsComponent implements OnInit {
 @ViewChild('addReservation', {static: false}) reservationContent;
 @ViewChild('addPatiant', {static: false}) addPatiant;
+@ViewChild('examinationsDetails', {static: false}) examinationsDetails;
+
 
   data;
   selectedRow;
@@ -62,7 +68,7 @@ export class PatientsComponent implements OnInit {
   };
   @ViewChild('addEditModal', {static: false}) addEditModal;
 
-  constructor(private router : Router,private http: HttpClient,private toastr: ToastrService ,private modalService: NgbModal,private spinner: NgxSpinnerService) {
+  constructor(private confirmationService: ConfirmationService ,private router : Router,private http: HttpClient,private toastr: ToastrService ,private modalService: NgbModal,private spinner: NgxSpinnerService) {
 
     this.loadData();
     // this.cars = [
@@ -112,9 +118,9 @@ phone_number: "45455"
 
     this.items = [
       { label: ' اضافة موعد', icon: 'fas fa-user-plus',  command: (event) => this.openSm(this.reservationContent) },
-      { label: ' التاريخ المرضي', icon: 'fas fa-toilet-paper',  command: (event) => this.editData(this.selectedRow) },
+      { label: ' التاريخ المرضي', icon: 'fas fa-toilet-paper',  command: (event) => this.lgModalNotDiss(this.examinationsDetails) },
 
-      { label: 'تعديل المريض', icon: 'fas fa-edit',  command: (event) => this.openAddModal(this.addPatiant) },
+      { label: 'تعديل المريض', icon: 'fas fa-edit',  command: (event) => this.lgModalNotDiss(this.addPatiant) },
       { label: 'مسح المريض', icon: 'fas fa-trash', command: (event) => this.deleteRow(this.selectedRow) }
 
   ];
@@ -131,20 +137,7 @@ this.data = this.rowData
   // })
 }
 
-deleteRow(row) {
-  console.log(row);
-  if(!confirm('هل تريد حذف هذا المستخدم ؟')) return;
 
-  // this.userService.delNormalUser(row.id).subscribe(res =>{
-  //   this.toastr.success('تم حذف المستخدم بنجاح', 'حذف');
-  //   this.loadData();
-
-  //   // console.log('sented data : '+ taskData.value)
-  //   // this.router.navigate(['/rowes'])
-  //   // console.log(res);
-  // })
-  // this.messageService.add({ severity: 'info', summary: 'Car Selected', detail: car.vin + ' - ' + car.brand });
-}
 open(content) {
   this.modalService.open(content, { size: 'lg' });
 }
@@ -152,11 +145,12 @@ openSm(content) {
   this.modalService.open(content, { size: 'sm' });
 
 }
-openAddModal(content) {
+lgModalNotDiss(content) {
   this.modalService.open(content,{
       backdrop: 'static',
       keyboard: false,
-      size: 'lg'
+      size: 'xl' ,
+      scrollable: true
   });
 }
 editData(row) {
@@ -323,4 +317,25 @@ onUpload(event) {
 addReservation(reservation) {
 
 }
+deleteRow(row) {
+  console.log(row);
+  this.confirmationService.confirm({
+    message: 'هل تريد حذف هذا المريض',
+    acceptLabel: 'نعم',
+    rejectLabel: 'لا',
+    accept: () => {
+        //Actual logic to perform a confirmation
+    }
+});
+  // this.userService.delNormalUser(row.id).subscribe(res =>{
+  //   this.toastr.success('تم حذف المستخدم بنجاح', 'حذف');
+  //   this.loadData();
+
+  //   // console.log('sented data : '+ taskData.value)
+  //   // this.router.navigate(['/rowes'])
+  //   // console.log(res);
+  // })
+  // this.messageService.add({ severity: 'info', summary: 'Car Selected', detail: car.vin + ' - ' + car.brand });
+}
+
 }

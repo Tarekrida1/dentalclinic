@@ -1,6 +1,7 @@
 $firt_color: #00c3cb;
 $second_color: #FF5252;
 $grey_color: #2d4057;
+$red_color: #ff6b6b;
 @mixin tran($t) {
     -webkit-transition: all $t ease-in-out;
     -moz-transition: all $t ease-in-out;
@@ -67,4 +68,58 @@ a {
   border: 1px solid transparent !important;
 
   }
+}
+
+ .modal-xl {
+  max-width: 800px;
+}
+.c-icon {
+  width: 40px;
+    background: white;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 0 rgba(93, 93, 93, 0.18);
+    color: #bbbbbb;
+}
+.dateRange {
+  height: 100%;
+  margin: 0px ;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15) !important;
+  padding: 0;
+  input {
+    height: 40px;
+    min-width: 100%;
+    border-radius: 0 !important;
+  }
+  p-calendar {
+    width: calc(100% - 40px);
+    span {
+      width: 100%;
+    }
+  }
+  .input-group-append {
+    width: 40px;
+    margin-right: auto;
+  }
+  .ui-dropdown,  .ui-dropdown {
+    height: 40px !important;
+  width: 100% !important;
+  }
+  .ui-dropdown label.ui-dropdown-label {
+    height: 40px !important;
+    width: 100% !important;
+    line-height: 30px;
+}
+ .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter {
+  width: 100%;
+  padding-right: 4em;
+}
+}
+
+
+.row {
+  width: 100%;
 }

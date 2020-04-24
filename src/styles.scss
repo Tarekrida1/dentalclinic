@@ -6,8 +6,14 @@
 @import "../node_modules/swiper/css/swiper.min";
 @import "hover";
 @import "animate";
+@import "../node_modules/@fullcalendar/core/main.min.css";
+@import "../node_modules/@fullcalendar/daygrid/main.min.css";
+@import "../node_modules/@fullcalendar/timegrid/main.min.css";
+@import "materialFullCalendar";
 @import "global";
 @import "sec_style";
+@import "media";
+
 
 
 body {
@@ -17,7 +23,9 @@ body {
 html {
   direction: rtl;
 }
-
+button:focus {
+  outline: none
+}
 @font-face {
   font-family: egyprosoftfont;
   src: url(fonts/JF-Flat-regular.ttf);
@@ -27,15 +35,15 @@ html {
   font-size: 15px;
 }
 .navbar-nav li:hover>.dropdown-menu {
-  display: block;
-  // -webkit-animation-name: bounceInDown;
-  // animation-name: bounceInDown;
-
-    visibility: visible;
-    height: auto;
-    overflow: unset;
-    animation: .5s rotateInDownRight;
-    -webkit-animation: .5s rotateInDownRight;
+//   display: block;
+//   // -webkit-animation-name: bounceInDown;
+//   // animation-name: bounceInDown;
+// margin: 0 !important;
+//     visibility: visible;
+//     height: auto;
+//     overflow: unset;
+//     animation: .5s rotateInDownRight;
+//     -webkit-animation: .5s rotateInDownRight;
 
 }
 
@@ -153,7 +161,9 @@ h2 {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 0 15px 0 rgba(105, 105, 105, 0.12);
-
+    .ui-slidemenu .ui-slidemenu-content {
+      height: 78vh !important;
+  }
     // overflow: auto;
     z-index: 99;
     background: #EFEFBB;
@@ -571,7 +581,7 @@ i {
 
   }
   .footer-copyright {
-      background: $second_color;
+      background: $firt_color;
       color: #eafffb;
 
       p {
@@ -590,11 +600,11 @@ app-table-layouts {
   margin-top: 80px;
 }
 .dropdown-menu {
-  display: block;
+  display: none;
   direction: ltr;
-  visibility: hidden;
-  height: 0;
-  overflow: hidden;
+  // visibility: hidden;
+  // height: 0;
+  // overflow: hidden;
   right: 0;
   border: 0;
   box-shadow: 0 0 27px rgba(0,0,0,.13);
@@ -602,12 +612,15 @@ app-table-layouts {
 
 }
 .dropdown-menu.show {
-  visibility: visible;
-  height: auto;
-  overflow: unset;
-  animation: .5s rotateInDownRight;
-  -webkit-animation: .5s rotateInDownRight;
+
 }
+// .dropdown-menu.show {
+//   visibility: visible;
+//   height: auto;
+//   overflow: unset;
+//   animation: .5s rotateInDownRight;
+//   -webkit-animation: .5s rotateInDownRight;
+// }
 body .pi {
   font-size: 1.5em !important;
 }
@@ -702,4 +715,88 @@ body .ui-panel .ui-panel-titlebar .ui-panel-titlebar-icon:focus {
 .ui-chkbox-label {
   margin: 0 0.5em 0 0.5em;
 }
+}
+
+.panel-success {
+  background-image: linear-gradient(-225deg, #FFFEFF 0%, #fff8f6 100%);
+    background-image: -webkit-linear-gradient(-225deg, #FFFEFF 0%, #fff8f6 100%);
+    margin: 10px 20px;
+    padding: 15px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    .icon-text {
+      display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #e8ffff;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.058823529411764705);
+    border-radius: 10px;
+        i {
+          color: $second_color;
+          font-size: 25px;
+        }
+        span {
+          color: $firt_color;
+          font-size: 18px;
+          padding: 0 10px;
+          font-weight: bold;
+        }
+    }
+
+}
+.ui-confirmdialog {
+  .ui-dialog-titlebar {
+    border: none;
+    background-color: $red_color !important;
+    color: #ffffff !important;
+    padding: 1em;
+    font-weight: 700;
+    border-bottom: 0 none;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: baseline;
+    .ui-dialog-titlebar-icon span {
+      width: auto;
+      background: #fff;
+      color: $red_color;
+  }
+}
+.ui-dialog-content .ui-confirmdialog-icon {
+  margin-right: 0em;
+  margin-left: .5em;
+
+  position: relative;
+  top: .2em;
+  font-size: 55px !important;
+  color: $red_color;
+  background: transparent;
+  padding: 5px;
+    top: 0;
+}
+ .ui-dialog-content {
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+}
+.ui-confirmdialog-message  {
+  font-size: 16px;
+}
+ .ui-dialog-footer button {
+  margin: 0 0.5em 0 0;
+  width: 110px !important;
+  .pi {
+    background: transparent;
+  }
+}
+.ui-dialog-footer .ui-state-default {
+  background: #ff6b6b;
+
+  &:nth-child(even) {
+    background: transparent;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.25098039215686274);
+    color: #757575;
+}
+}
+
 }

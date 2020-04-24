@@ -28,10 +28,22 @@ import { LoginRegistrationComponent } from './components/login-registration/logi
 import {CalendarModule} from 'primeng/calendar';
 import {PanelModule} from 'primeng/panel';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import { ButtonModule} from 'primeng/button';
+import { ChartsModule } from 'ng2-charts';
+// import {
+//   ButtonModule,
+//   DialogModule,
+//   InputTextModule,
+// } from 'primeng';
+
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   slidesPerView: 'auto'
 };
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {FullCalendarModule} from 'primeng/fullcalendar';
+import { SidenavService } from './services/sidenav/sidenav.service';
 
 
 
@@ -59,13 +71,21 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CheckboxModule,
     CalendarModule,
     PanelModule,
-    RadioButtonModule
+    RadioButtonModule,
+    ConfirmDialogModule,
+    ButtonModule,
+    ChartsModule,
+    FullCalendarModule
+    // DialogModule,
+    // InputTextModule,
   ],
   providers: [
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG
-    }
+    },
+    ConfirmationService,
+    SidenavService
   ],
   exports: [
     CommonModule,
@@ -83,7 +103,14 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CheckboxModule,
     CalendarModule,
     PanelModule,
-    RadioButtonModule
+    RadioButtonModule,
+    ConfirmDialogModule,
+    ButtonModule,
+    ChartsModule,
+    FullCalendarModule
+    // DialogModule,
+    // InputTextModule,
+    // ConfirmationService
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidenavService } from 'src/app/shared/services/sidenav/sidenav.service';
 
 @Component({
   selector: 'app-table-layouts',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-layouts.component.scss']
 })
 export class TableLayoutsComponent implements OnInit {
-  private _opened: boolean = true;
-  private _dock: boolean = true;
+  public _opened: boolean = true;
+  public _dock: boolean = true;
 
 /**
  *
@@ -35,19 +36,22 @@ export class TableLayoutsComponent implements OnInit {
 
 </ng-sidebar-container>
  */
-  constructor() { }
+  constructor( private sidenavSer: SidenavService) { }
 
   ngOnInit() {
+    this.sidenavSer._toggleClick.subscribe(e => {
+      this._dock = e
+    })
   }
   private _toggleSidebar() {
     // this._opened = !this._opened;
     this._dock = !this._dock;
 
   }
-  private _toggleDock(): void {
+  public _toggleDock(): void {
     this._dock = !this._dock;
   }
-  private _toggleDockOnHover(): void {
+  public _toggleDockOnHover(): void {
     if (this._dock = false) {
       this._dock = !this._dock;
 
